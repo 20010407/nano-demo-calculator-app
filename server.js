@@ -2,26 +2,24 @@ const express = require('express');
 const app = express();
 
 const PORT = process.env.PORT || 8080;
-app.use(express.urlencoded({extended:true}));
 
 const baseUrl = '/calculator'
 
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 const baseRouter = express.Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.status(200).send('Hello world!');
-
+    return res.send('Hello world!');
 });
 
-baseRouter.get('/add', (req, res) => {
+baseRouter.post('/add', (req, res) => {
     const num1 = Number(req.body.first);
     const num2 = Number(req.body.second);
     const result = num1 + num2;
     // const stresult = result.toString();
-    res.status(200).json({ "result": result });
-
+    res.json({ "result": result });
 });
 
 
@@ -30,8 +28,7 @@ baseRouter.post('/subtract', (req, res) => {
     const num2 = Number(req.body.second);
     const result = num1 - num2;
     // const stresult = result.toString();
-    res.status(200).json({ "result": result });
-
+    res.json({ "result": result });
 });
 
 app.use(baseUrl, baseRouter);
