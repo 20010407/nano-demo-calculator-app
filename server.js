@@ -16,17 +16,21 @@ baseRouter.get('/greeting', (req, res) => {
 });
 
 baseRouter.get('/add', (req, res) => {
-    const s=Number(req.body.first) +Number( req.body.second);
-    res.status(200).json({ "result": s });
+    const num1 = Number(req.body.first);
+    const num2 = Number(req.body.second);
+    const result = num1 + num2;
+    // const stresult = result.toString();
+    res.json({ "result": result });
 
 });
 
 
 baseRouter.post('/subtract', (req, res) => {
-    const t=Number(req.body.first) - Number(req.body.second);
-    
-    res.status(200).json({ "result": t });
-
+    const num1 = Number(req.body.first);
+    const num2 = Number(req.body.second);
+    const result = num1 - num2;
+    // const stresult = result.toString();
+    res.json({ "result": result });
 
 });
 
