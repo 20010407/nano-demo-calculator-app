@@ -20,7 +20,7 @@ baseRouter.get('/add', (req, res) => {
     const num2 = Number(req.body.second);
     const result = num1 + num2;
     // const stresult = result.toString();
-    res.json({ "result": result });
+    res.status(200).json({ "result": result });
 
 });
 
@@ -30,7 +30,7 @@ baseRouter.post('/subtract', (req, res) => {
     const num2 = Number(req.body.second);
     const result = num1 - num2;
     // const stresult = result.toString();
-    res.json({ "result": result });
+    res.status(200).json({ "result": result });
 
 });
 
